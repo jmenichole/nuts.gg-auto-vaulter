@@ -22,5 +22,5 @@ test('install page tells people the tip starts checked and covers phone install'
   assert.match(page, /Starts checked/i);
   assert.match(page, /Violentmonkey/);
   assert.match(page, /bookmark/i);
-  assert.match(page, /da\.gd\/nva/);
+  assert.match(page, /da\.gd\/avn/);
 });

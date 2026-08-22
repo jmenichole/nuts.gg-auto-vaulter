@@ -6,8 +6,8 @@
 // @author       jmenichole
 // @copyright    2026, Tiltcheck.me (https://tiltcheck.me)
 // @license      All Rights Reserved. Modification and unauthorized redistribution prohibited.
-// @downloadURL  https://raw.githubusercontent.com/jmenichole/nuts.gg-auto-vaulter/main/tiltcheck-nuts-autovault.user.js
-// @updateURL    https://raw.githubusercontent.com/jmenichole/nuts.gg-auto-vaulter/main/tiltcheck-nuts-autovault.user.js
+// @downloadURL  https://jmenichole.github.io/nuts.gg-auto-vaulter/tiltcheck-nuts-autovault.user.js
+// @updateURL    https://jmenichole.github.io/nuts.gg-auto-vaulter/tiltcheck-nuts-autovault.user.js
 // @match        *://nuts.gg/*
 // @match        *://*.nuts.gg/*
 // @match        https://nuts.gg/*
