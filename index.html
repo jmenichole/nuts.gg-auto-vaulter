@@ -104,8 +104,8 @@
 
     <section class="card">
       <div class="label">Nuts chat link</div>
-      <p class="chat" id="chatLink">da.gd/nva</p>
-      <p class="muted">Type that. It opens this page.</p>
+      <p class="chat" id="chatLink">da.gd/avn</p>
+      <p class="muted">Type that. It opens this page — not GitHub.</p>
       <button class="btn secondary" type="button" id="copyChat">Copy chat link</button>
       <p class="copied" id="copiedMsg"></p>
     </section>
@@ -145,20 +145,15 @@
     </section>
 
     <footer>
-      Source: <a href="https://github.com/TiltCheck-ME/tiltcheck-monorepo">TiltCheck-ME</a>
-      · <a href="https://github.com/jmenichole/nuts.gg-auto-vaulter">this repo</a>
-      · Made for degens by degens
+      Made for degens by degens · TiltCheck AutoVault
     </footer>
   </main>
   <script>
     (function () {
-      var chat = 'https://da.gd/nva';
-      var branch = 'cursor/short-share-link-49cc';
-      var rawScript = 'https://raw.githubusercontent.com/jmenichole/nuts.gg-auto-vaulter/' + branch + '/tiltcheck-nuts-autovault.user.js';
-      var hostedScript = 'https://raw.githack.com/jmenichole/nuts.gg-auto-vaulter/' + branch + '/tiltcheck-nuts-autovault.user.js';
-      var scriptUrl = /github\.io|raw\.githack|htmlpreview/.test(location.host)
-        ? new URL('tiltcheck-nuts-autovault.user.js', window.location.href).href
-        : rawScript;
+      var chat = 'https://da.gd/avn';
+      var pages = 'https://jmenichole.github.io/nuts.gg-auto-vaulter/';
+      var scriptUrl = pages + 'tiltcheck-nuts-autovault.user.js';
+      var hostedScript = scriptUrl;
       document.getElementById('installScript').href = scriptUrl;
       document.getElementById('installScriptDesktop').href = scriptUrl;
 
@@ -170,7 +165,7 @@
 
       document.getElementById('copyChat').addEventListener('click', function () {
         var msg = document.getElementById('copiedMsg');
-        function done(ok) { msg.textContent = ok ? 'Copied da.gd/nva' : 'Copy failed — type da.gd/nva'; }
+        function done(ok) { msg.textContent = ok ? 'Copied da.gd/avn' : 'Copy failed — type da.gd/avn'; }
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(chat).then(function () { done(true); }).catch(function () { done(false); });
         } else {
