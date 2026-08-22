@@ -1,0 +1,8 @@
+{
+  "name": "nuts.gg-auto-vaulter",
+  "private": true,
+  "description": "Share page and userscript for the TiltCheck nuts.gg AutoVault",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  }
+}

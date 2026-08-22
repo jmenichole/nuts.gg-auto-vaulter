@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>nuts.gg AutoVault — install</title>
+  <meta name="description" content="Free auto-vault for nuts.gg. Desktop Tampermonkey or phone Firefox — no Play Store Tampermonkey required." />
+  <style>
+    :root {
+      --teal: #17c3b2;
+      --bg: #0a0c10;
+      --card: #12161e;
+      --border: #283347;
+      --text: #c4ced8;
+      --muted: #8a97a8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    main { max-width: 440px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+    h1 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #fff;
+      margin: 0 0 0.4rem;
+    }
+    .sub { color: var(--muted); font-size: 0.9rem; margin: 0 0 1.25rem; }
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(23, 195, 178, 0.35);
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--teal);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .chat {
+      font-family: ui-monospace, monospace;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.04em;
+      margin: 0.25rem 0 0.4rem;
+    }
+    ol { padding-left: 1.2rem; margin: 0.4rem 0 0; }
+    li { margin-bottom: 0.55rem; font-size: 0.9rem; }
+    a.btn, button.btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 0.85rem;
+      padding: 0.85rem 1rem;
+      background: transparent;
+      border: 2px solid var(--teal);
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    a.btn:hover, button.btn:hover { background: rgba(23, 195, 178, 0.1); }
+    a.btn.secondary, button.btn.secondary {
+      border-color: var(--border);
+      color: var(--text);
+      margin-top: 0.5rem;
+    }
+    .muted { color: var(--muted); font-size: 0.8rem; }
+    .tip {
+      border-color: rgba(187, 134, 252, 0.4);
+    }
+    .tip strong { color: #d0aaff; }
+    footer {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+    footer a { color: var(--teal); }
+    .copied { color: var(--teal); font-size: 0.75rem; min-height: 1.2em; margin: 0.3rem 0 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>nuts.gg AutoVault</h1>
+    <p class="sub">Same TiltCheck script. Skims a slice of each win into your vault. Phone or desktop.</p>
+
+    <section class="card">
+      <div class="label">Nuts chat link</div>
+      <p class="chat" id="chatLink">da.gd/nva</p>
+      <p class="muted">Type that. It opens this page.</p>
+      <button class="btn secondary" type="button" id="copyChat">Copy chat link</button>
+      <p class="copied" id="copiedMsg"></p>
+    </section>
+
+    <section class="card tip">
+      <div class="label">Tip box</div>
+      <p><strong>Starts checked.</strong> 1% of vault withdrawals tips <code>@jmenichole</code> to fund TiltCheck tools. Uncheck it in the panel if you do not want that. Vaulting works either way.</p>
+    </section>
+
+    <section class="card">
+      <div class="label">Phone — no Tampermonkey app</div>
+      <p class="muted">Play Store Tampermonkey is a fake sandbox. Use Firefox + Violentmonkey, or the bookmark on nuts.gg.</p>
+      <ol>
+        <li>Install <a href="https://play.google.com/store/apps/details?id=org.mozilla.firefox">Firefox</a> (Android) or use Safari bookmarks (iPhone).</li>
+        <li>Android: add <a href="https://addons.mozilla.org/android/addon/violentmonkey/">Violentmonkey</a>, then tap Install script below.</li>
+        <li>iPhone / no add-ons: open <strong>nuts.gg</strong>, then tap the bookmark you add from the button below.</li>
+        <li>Log in, hit <strong>Start</strong> on the purple AutoVault panel.</li>
+      </ol>
+      <a class="btn" id="installScript" href="#">Install script</a>
+      <a class="btn secondary" id="bookmarklet" href="#">Add bookmark (run on nuts.gg)</a>
+      <p class="muted">Bookmark: on iPhone, add this page to Favorites, then edit the bookmark URL to the one copied after you tap the button. On Android Firefox, long-press the button and bookmark it. Tap it while nuts.gg is open.</p>
+    </section>
+
+    <section class="card">
+      <div class="label">Computer — Tampermonkey</div>
+      <ol>
+        <li>Install <a href="https://www.tampermonkey.net/">Tampermonkey</a>.</li>
+        <li>Tap Install script. Confirm the Tampermonkey prompt.</li>
+        <li>Open <a href="https://nuts.gg">nuts.gg</a>, log in, press Start.</li>
+      </ol>
+      <a class="btn" id="installScriptDesktop" href="#">Install script</a>
+    </section>
+
+    <section class="card">
+      <div class="label">What it does</div>
+      <p>Runs in your browser on nuts.gg. It never asks for your password. It vaults the same way the site vault button does. One tab only — do not start it in two tabs.</p>
+    </section>
+
+    <footer>
+      Source: <a href="https://github.com/TiltCheck-ME/tiltcheck-monorepo">TiltCheck-ME</a>
+      · <a href="https://github.com/jmenichole/nuts.gg-auto-vaulter">this repo</a>
+      · Made for degens by degens
+    </footer>
+  </main>
+  <script>
+    (function () {
+      var chat = 'https://da.gd/nva';
+      var branch = 'cursor/short-share-link-49cc';
+      var rawScript = 'https://raw.githubusercontent.com/jmenichole/nuts.gg-auto-vaulter/' + branch + '/tiltcheck-nuts-autovault.user.js';
+      var hostedScript = 'https://raw.githack.com/jmenichole/nuts.gg-auto-vaulter/' + branch + '/tiltcheck-nuts-autovault.user.js';
+      var scriptUrl = /github\.io|raw\.githack|htmlpreview/.test(location.host)
+        ? new URL('tiltcheck-nuts-autovault.user.js', window.location.href).href
+        : rawScript;
+      document.getElementById('installScript').href = scriptUrl;
+      document.getElementById('installScriptDesktop').href = scriptUrl;
+
+      var bookmarkHref =
+        "javascript:void(function(){if(!/nuts\\.gg$/i.test(location.hostname)){alert('Open nuts.gg first, then tap this bookmark.');return;}var s=document.createElement('script');s.src=" +
+        JSON.stringify(hostedScript) +
+        ";document.documentElement.appendChild(s);}())";
+      document.getElementById('bookmarklet').href = bookmarkHref;
+
+      document.getElementById('copyChat').addEventListener('click', function () {
+        var msg = document.getElementById('copiedMsg');
+        function done(ok) { msg.textContent = ok ? 'Copied da.gd/nva' : 'Copy failed — type da.gd/nva'; }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(chat).then(function () { done(true); }).catch(function () { done(false); });
+        } else {
+          done(false);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
